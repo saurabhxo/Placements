@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+int x=0,y=0;
+int main()
+{
+    string str,cap,small;
+    cin>>str;
+    int n,i;
+    n=str.length();
+    sort(str.begin(),str.end());
+    for(i=0;i<n;i++)
+    {
+        if(str[i]>='A' && str[i]<='Z')
+        {
+            cap+=str[i];
+        }
+        else
+        {
+            small+=str[i];
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+       if((cap[x]==cap[x+1]) && (cap[x]+32<=small[i]))
+       {
+           cout<<cap[x++];
+       }
+       else if(cap[x]+32==small[y])
+       {
+           cout<<cap[x++]<<small[y++];
+       }
+        else if(cap[x]=='/0')
+        {
+            cout<<small[y++];
+        }
+        else if(small[y]=='/0')
+        {
+            cout<<cap[x++];
+        }
+        else if(cap[x]+32<small[y])
+        {
+            cout<<cap[x++];
+        }
+        else if(cap[x]+32>small[i])
+        {
+            cout<<small[y++];
+        }
+        
+    }
+    return 0;
+}
+
+*************************************************************************************************************************
+input
+mmabDbNMnA
+output
+AabbDMmmNn
